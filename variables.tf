@@ -5,7 +5,6 @@ variable "name" {
 
 variable "user" {
   type = string
-  default = "ubuntu"
 }
 
 # String of comma separated port numbers to open
@@ -14,21 +13,19 @@ variable "open_ports" {
   default = "80,443"
 }
 
-# dy.fi DDNS service
-variable "dyfi_username" {
+# DDNS service
+variable "ddns_username" {
   type = string
-  default = "user@mail.com"
 }
 
-variable "dyfi_password" {
+variable "ddns_password" {
   type = string
-  default = "password"
 }
 
-variable "dyfi_hostname" {
+variable "ddns_hostname" {
   type = string
-  default = "mydomain.dy.fi"
 }
+
 
 /*
 Available flex shapes:

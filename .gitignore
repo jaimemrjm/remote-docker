@@ -7,3 +7,5 @@ id_rsa*
 
 resources/.DS_Store
 .DS_Store
+mylocal.tfvars
+ssh_docker-remote
