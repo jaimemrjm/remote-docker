@@ -39,7 +39,7 @@ If you want access OCI compute instance using a Dynamic DNS domain name compatib
 
 As you can suspect by now, we are going to use terraform to provision our Docker service. Basically terraform will create one VM instance as big as the free tear allow us, and let it ready so we can ssh into the machine and with docker ready to start our containers.  
 
-Check variables in `variables.tf` file to get desired compute instance and user names for SSH access.
+Check variables in `local.tfvars` and `variables.tf` file to get desired compute instance and user names for SSH access.
 
 Execute following commands:
 

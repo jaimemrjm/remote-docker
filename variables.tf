@@ -5,7 +5,6 @@ variable "name" {
 
 variable "user" {
   type = string
-  default = "jaime"
 }
 
 # String of comma separated port numbers to open
