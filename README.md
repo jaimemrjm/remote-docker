@@ -31,10 +31,9 @@ After cloning this repository
 
 ### 4. [Configure OCI credentials](https://learn.hashicorp.com/tutorials/terraform/oci-build?in=terraform/oci-get-started).
 
-### 5. [Create dy.fi account](https://dy.fi)
+### 5. Configure your Dynamic DNS
 
-If you want access OCI compute instance using a (dy.fi) domain name
-Configure variables `dyfi_username`, `dyfi_password` and `dyfi_hostname` in `variables.tf`.
+If you want access OCI compute instance using a Dynamic DNS domain name compatible with [ddclient](https://launchpad.net/~ddclient/+archive/ubuntu/daily), configure variables `ddns_username`, `ddns_password` and `ddns_hostname` in `local.tfvars`. I have prepared ddclient.conf for [deSEC](https://https://desec.io), an European free ddns service.
 
 ### 6. Create remote environment
 
@@ -54,7 +53,7 @@ oci session authenticate
 
 ```
 terraform init
-terraform apply
+terraform apply -var-file="local.tfvars"
 ```
 
 When `terraform apply` command is executed, following files are generated in the root of this repository:

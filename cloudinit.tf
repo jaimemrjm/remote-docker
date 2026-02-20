@@ -82,9 +82,9 @@ data "cloudinit_config" "_" {
 data "template_file" "ddclient" {
     template = "${file("${path.module}/ddclient.conf.tpl")}"
     vars = {
-      dyfi_username = var.dyfi_username
-      dyfi_password = var.dyfi_password
-      dyfi_hostname = var.dyfi_hostname
+      ddns_username = var.ddns_username
+      ddns_password = var.ddns_password
+      ddns_hostname = var.ddns_hostname
     }
 }
 
