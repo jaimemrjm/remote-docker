@@ -63,3 +63,8 @@ variable "availability_domain" {
   type    = number
   default = 0
 }
+
+variable "region" {
+  type    = string
+  default = "eu-marseille-1"
+}
