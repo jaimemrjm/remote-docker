@@ -35,7 +35,7 @@ resource "oci_core_instance" "_" {
     private_ip = each.value.ip_address
   }
   metadata = {
-    user_data           = data.cloudinit_config._[each.key].rendered
+    user_data = data.cloudinit_config._[each.key].rendered
   }
 }
 
@@ -46,7 +46,7 @@ locals {
     i => {
       node_name  = format("%s%d", var.name, i)
       ip_address = format("10.0.0.%d", 10 + i)
-      domain = var.availability_domain
+      domain     = var.availability_domain
     }
   }
 }

@@ -9,7 +9,7 @@ variable "user" {
 
 # String of comma separated port numbers to open
 variable "open_ports" {
-  type = string
+  type    = string
   default = "80,443"
 }
 

@@ -36,6 +36,8 @@ data "cloudinit_config" "_" {
             source: "deb https://download.docker.com/linux/ubuntu jammy stable"
             key: |
               ${indent(8, data.http.docker_repo_key.response_body)}
+          ddclient:
+            source: ppa:ddclient/daily
       users:
       - default
       - name: ${var.user}
@@ -80,12 +82,12 @@ data "cloudinit_config" "_" {
 }
 
 data "template_file" "ddclient" {
-    template = "${file("${path.module}/ddclient.conf.tpl")}"
-    vars = {
-      ddns_username = var.ddns_username
-      ddns_password = var.ddns_password
-      ddns_hostname = var.ddns_hostname
-    }
+  template = file("${path.module}/ddclient.conf.tpl")
+  vars = {
+    ddns_username = var.ddns_username
+    ddns_password = var.ddns_password
+    ddns_hostname = var.ddns_hostname
+  }
 }
 
 data "http" "docker_repo_key" {

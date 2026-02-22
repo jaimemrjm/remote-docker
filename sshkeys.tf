@@ -16,22 +16,22 @@ resource "local_file" "ssh_public_key" {
 }
 
 resource "local_file" "ssh_config_file" {
-    content = templatefile("${path.module}/ssh_config.tpl", {
-        path_cwd = path.cwd,
-        user = var.user,
-        nodes = oci_core_instance._
-      })
-    filename = join(
-      "/",
-      [
-        path.cwd,
-        local.ssh_config_file
-      ]
-    )
+  content = templatefile("${path.module}/ssh_config.tpl", {
+    path_cwd = path.cwd,
+    user     = var.user,
+    nodes    = oci_core_instance._
+  })
+  filename = join(
+    "/",
+    [
+      path.cwd,
+      local.ssh_config_file
+    ]
+  )
 }
 
 locals {
-  compartment_id = oci_identity_compartment._.id
+  compartment_id  = oci_identity_compartment._.id
   authorized_keys = [chomp(tls_private_key.ssh.public_key_openssh)]
   ssh_config_file = "ssh_${var.name}"
 }
